@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    include users_helper
+    include UsersHelper
 
     def Signin(user)
         cookies.permanent.signed[:user_id] = user.id
@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
 
     def logout
         cookies.delete(:user_id)
-        redirect_to users_path
+        redirect_to signin_path
     end
 end

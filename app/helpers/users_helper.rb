@@ -1,6 +1,6 @@
 module UsersHelper
     def signed?
-        return true if cookies[:user_id]
+      return true if cookies[:user_id]
     end
 
     def current_user
