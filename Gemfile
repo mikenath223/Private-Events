@@ -3,12 +3,25 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+
+gem 'bcrypt', '3.1.12'
+gem 'faker',   '1.7.3'
+gem 'will_paginate',           '3.1.7'
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'bootsnap', '1.4.5'
+gem 'bootstrap-sass', '3.4.1'
+gem 'coffee-rails', '5.0.0'
+gem 'jquery-rails', '4.3.5'
+gem 'minitest'
+gem 'minitest-reporters'
+gem 'puma', '4.3.1'
+gem 'rails-controller-testing'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -26,7 +39,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+group :production do
+gem 'pg'
+end
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
