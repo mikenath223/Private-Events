@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
     def Signin(user)
         cookies.permanent.signed[:user_id] = user.id
-        current_user user
+        current_user 
     end
 
     def logout
