@@ -17,8 +17,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @current_user ||= User.find_by(id: cookies.signed[:user_id])
-    @events = @current_user.events
+    if signed?
+    @user ||= User.find_by(id: cookies.signed[:user_id])
+    @events = @user.events
+    else
+      redirect_to signin_path
+    end
   end
 
 

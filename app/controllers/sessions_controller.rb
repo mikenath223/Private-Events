@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user
       # user.name
       cookies.permanent.signed[:user_id] = user.id
-      @current_user = user.name
+      current_user
       signed?
 
       redirect_to root_path
