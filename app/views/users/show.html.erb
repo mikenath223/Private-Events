@@ -1,9 +1,17 @@
-<div class="row container-fluid">
+<%= provide(:title, "User-Events") %>
+<div class="container col-md-6 col-md-offset-1">
+  <h2>Events created by <%= current_user %></h1>
   <% @events.each do |event| %>
-  <ul>
-    <li><%= event.date %> </li>
-    <li><%= event.location %> </li>
-    <li><%= event.description %> </li>
-  </ul>
+  <div class="card" style="width: 28rem;">
+    <div class="card-header bg-info">
+     <h3><%= event.id %></h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Event-date<%= event.date %></li>
+      <li class="list-group-item"><%= event.location %></li>
+      <li class="list-group-item"><%= event.description %></li>
+    </ul>
+  </div>
   <% end %>
+  <hr>
 </div>
