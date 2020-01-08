@@ -17,8 +17,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.all
+    @current_user ||= User.find_by(id: cookies.signed[:user_id])
+    @events = @current_user.events
   end
+
+
 
   # def signin_new
   #   render 'signin'

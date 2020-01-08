@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row container-fluid">
+  <% @events.each do |event| %>
+  <ul>
+    <li><%= event.date %> </li>
+    <li><%= event.location %> </li>
+    <li><%= event.description %> </li>
+  </ul>
+  <% end %>
+</div>
