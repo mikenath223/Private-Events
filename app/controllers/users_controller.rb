@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       Signin @user
       flash[:success] = 'Welcome to the app'
-      redirect_to root_path
+      redirect_to new_event_path
     else
       render 'new'
     end

@@ -10,8 +10,8 @@
       <li class="list-group-item">Event-date: <%= event.date %></li>
       <li class="list-group-item">Event Location: <%= event.location %></li>
       <li class="list-group-item">What's it about? <%= event.description %></li>
+      <%= link_to "View event", event_path(event.id) %>
     </ul>
-    <%= link_to "View event", event_path(event.id) %>
   </div>
   <% end %>
   <hr>

@@ -1,0 +1,19 @@
+<%= provide(:title, "All Events") %>
+<div class="container col-md-6 col-md-offset-1">
+  <h1 class="text-grey">All Events</h1>
+  <% @events.each do |event| %>
+  <div class="card" style="width: 28rem;">
+    <div class="card-header bg-info">
+     <h3 class="text-center"><%= event.id %></h3>
+     <h4 class="">Hosted by: <%= show_creator(event) %></h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Event-date: <%= event.date %></li>
+      <li class="list-group-item">Event Location: <%= event.location %></li>
+      <li class="list-group-item">What's it about? <br> <%= event.description %></li>
+    </ul>
+    <%= link_to "View event", event_path(event.id) %>
+  </div>
+  <% end %>
+  <hr>
+</div>

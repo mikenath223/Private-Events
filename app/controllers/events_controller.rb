@@ -23,6 +23,10 @@ class EventsController < ApplicationController
         @event_creator = User.find(Event.find(params[:id]).creator_id).name
     end
 
+    def index
+        @events = Event.all
+    end
+
     private
 
     def event_params
