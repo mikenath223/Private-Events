@@ -5,7 +5,6 @@ module UsersHelper
 
     def current_user
       @current_user ||= User.find_by(id: cookies.signed[:user_id])
-      @user = @current_user.name
     end
   
     def current_user=(user)
