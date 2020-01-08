@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @events = @user.events
     else
       redirect_to signin_path
+      flash[:danger] = "You need to be logged in to access this function."
     end
   end
 

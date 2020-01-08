@@ -11,6 +11,7 @@
       <li class="list-group-item">Event Location: <%= event.location %></li>
       <li class="list-group-item">What's it about? <%= event.description %></li>
     </ul>
+    <%= link_to "View event", event_path(event.id) %>
   </div>
   <% end %>
   <hr>
