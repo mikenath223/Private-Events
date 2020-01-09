@@ -11,4 +11,11 @@ class ApplicationController < ActionController::Base
         cookies.delete(:user_id)
         redirect_to signin_path
     end
+
+    def auth?
+        unless signed?
+            redirect_to signin_path
+            flash[:danger] = 'You must be signed in to complete this action' 
+        end
+    end
 end

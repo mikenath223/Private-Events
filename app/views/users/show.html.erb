@@ -1,15 +1,15 @@
 <%= provide(:title, "User-Events") %>
 <div class="container col-md-6 col-md-offset-1">
   <h2>Events created by <%= current_user.name %></h1>
+  <%= pluralize(@events.count, "event") %>.
   <% @events.each do |event| %>
   <div class="card" style="width: 28rem;">
     <div class="card-header bg-info">
-     <h3 class="text-center"><%= event.id %></h3>
+     <h4 class="text-center">What's it about? <%= event.description %></h4>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Event-date: <%= event.date %></li>
       <li class="list-group-item">Event Location: <%= event.location %></li>
-      <li class="list-group-item">What's it about? <%= event.description %></li>
       <%= link_to "View event", event_path(event.id) %>
     </ul>
   </div>
