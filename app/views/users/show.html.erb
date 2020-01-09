@@ -1,18 +1,42 @@
 <%= provide(:title, "User-Events") %>
-<div class="container col-md-6 col-md-offset-1">
-  <h2>Events created by <%= current_user.name %></h1>
-  <%= pluralize(@events.count, "event") %>.
-  <% @events.each do |event| %>
-  <div class="card" style="width: 28rem;">
-    <div class="card-header bg-info">
-     <h4 class="text-center">What's it about? <%= event.description %></h4>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Event-date: <%= event.date %></li>
-      <li class="list-group-item">Event Location: <%= event.location %></li>
-      <%= link_to "View event", event_path(event.id) %>
-    </ul>
+<section class="container-fluid p-5">
+
+  <div class="row">
+    <h2 class="header-1 bg-info">Events created by <%= current_user.name.capitalize %></h1>
+      <div class="badge badge-pill badge-dark"><span class="badge badge-light">
+          <%= pluralize(@events.count, "event") %>.</span> </div>
+      <% @events.each do |event| %>
+      <div class="card d-inline-block border border-warning rounded m-3" style="width: 28rem;">
+        <div class="card-header bg-info mt-2">
+          <h4 class="text-center text-danger">Event Description: <%= event.description %></h4>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Event-date: <%= event.date %></li>
+          <li class="list-group-item">Event Location: <%= event.location %></li>
+          <%= link_to "Edit event", edit_event_path(event.id) %>
+        </ul>
+      </div>
+      <% end %>
+      <hr>
   </div>
-  <% end %>
-  <hr>
-</div>
+  <div class="row">
+    <h2 class="header-1 bg-alert text-info">Upcoming Events<%= current_user.name.capitalize %></h1>
+      <div class="badge badge-pill badge-dark"><span class="badge badge-light">
+          <%= pluralize(@upcoming_events.count, "event") %>.</span> </div>
+      <% @upcoming_events.each do |event| %>
+      <div class="card d-inline-block border border-warning rounded m-3" style="width: 28rem;">
+        <div class="card-header bg-info mt-2">
+          <h4 class="text-center text-danger">Event Description: <%= event.description %></h4>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Event-date: <%= event.date %></li>
+          <li class="list-group-item">Event Location: <%= event.location %></li>
+          <%= link_to "Edit event", event_path(event) %>
+        </ul>
+      </div>
+      <% end %>
+      <hr>
+  </div>
+</section>

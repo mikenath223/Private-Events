@@ -26,24 +26,6 @@ class UsersController < ApplicationController
     end
   end
 
-
-
-  # def signin_new
-  #   render 'signin'
-  # end
-
-  # def signin
-  #   user = User.find_by(name: params['users']['name'])
-  #   if user
-  #     # Signin user
-  #     redirect_to root_path
-  #     flash[:success] = "Signed in successfully"
-  #   else
-  #     flash.now[:danger] ='User doesn\'t exist'
-  #     render 'new'
-  #   end
-  # end
-
   private
 
   def user_params

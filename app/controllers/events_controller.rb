@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-    before_action :set_event, :auth?, only: %i[show edit update]
+    before_action :set_event, :auth?, only: %i[show edit update attend_event]
 
     def index
         @upcoming_events = Event.upcoming_events
@@ -33,6 +33,17 @@ class EventsController < ApplicationController
 
     def update
         
+    end
+
+    def attend_event
+        @user_event = current_user.user_events.build(event_id: params[:id])
+        if @user_event.save
+            redirect_to @event
+            flash[:success] = 'Cheers!!! You were successfully booked for this event!'
+        else
+            flash.now[:alert] = 'There was a problem booking you for the event.'
+            render :new
+        end
     end
 
     private

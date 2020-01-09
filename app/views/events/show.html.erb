@@ -1,1 +1,28 @@
-<h1>This event was created by <%= @current_user.name %></h1>
+<!-- <h1>This event was created by <%= @current_user.name %></h1> -->
+<section class="container-fluid">
+  <div class="row">
+    <h1>Hi <%= @current_user.name %>.</h1>
+    <p class="my-5">Event details</p>
+    <p><strong>Date:</strong> <%= @event.date %> </p>
+    <p><strong>Location:</strong> <%= @event.location %> </p>
+    <p><strong>Description:</strong> <%= @event.description %> </p>
+  </div>
+  <div class="row">
+    <p class="text-info">Event Attendees</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= @event.attendees.each do |attendee| %>
+        <tr>
+          <td scope=row><%= attendee.name %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to 'Edit event', edit_event_path(@event) %> | <%= link_to 'Go to events list', events_path %>
+</section>
