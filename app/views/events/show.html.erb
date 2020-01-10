@@ -1,18 +1,16 @@
-<!-- <h1>This event was created by <%= @current_user.name %></h1> -->
 <section class="container-fluid">
   <div class="row">
-    <h1>Hi <%= @current_user.name %>.</h1>
-    <p class="my-5">Event details</p>
+    <h1 class="my-5">Event details</h1>
     <p><strong>Date:</strong> <%= @event.date %> </p>
     <p><strong>Location:</strong> <%= @event.location %> </p>
     <p><strong>Description:</strong> <%= @event.description %> </p>
   </div>
   <div class="row">
-    <h3 class="text-primary">Event Attendees</h3>
+    <h2 class="text-primary">Event Attendees</h2>
     <table class="table">
       <thead>
         <tr>
-          <th class="display-1">Name</th>
+          <th class="text-danger">Event Attendee Name</th>
         </tr>
       </thead>
       <tbody>

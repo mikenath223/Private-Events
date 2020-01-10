@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   post 'events', to: 'events#create'
 
   get 'attend/:id' => 'events#attend_event', as: :attend
-  # get 'event/attend/', to: 'events#attend_event'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

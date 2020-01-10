@@ -4,7 +4,6 @@ class EventsController < ApplicationController
     def index
         @upcoming_events = Event.upcoming_events
         @prev_events = Event.prev_events
-        # @events = Event.all
     end
 
     def new
@@ -26,12 +25,14 @@ class EventsController < ApplicationController
         @current_user = current_user
     end
 
-    def edit
-        
-    end
+    def edit;end
 
     def update
-        
+        if @event.update(event_params)
+            flash[:success] = "Event successfully updated"
+            redirect_to event_path
+        else
+        end
     end
 
     def attend_event
