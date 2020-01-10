@@ -1,42 +1,56 @@
 <%= provide(:title, "User-Events") %>
-<section class="container-fluid p-5">
+<section class="container-fluid m-5 p-5">
+
 
   <div class="row">
-    <h2 class="header-1 bg-info">Events created by <%= current_user.name.capitalize %></h1>
-      <div class="badge badge-pill badge-dark"><span class="badge badge-light">
+    <h2 class="header-1 bg-primary p-3">Events created by <%= @user.name.capitalize %></h1>
+      <div class="badge badge-pill badge-dark mb-4"><span class="badge badge-light">
           <%= pluralize(@events.count, "event") %>.</span> </div>
-      <% @events.each do |event| %>
-      <div class="card d-inline-block border border-warning rounded m-3" style="width: 28rem;">
-        <div class="card-header bg-info mt-2">
-          <h4 class="text-center text-danger">Event Description: <%= event.description %></h4>
+      <div class="container-cards">
+        <% @events.each do |event| %>
+        <div class="card-type">
+          <div class="text-center">
+            <p class="bordered">Event Description: <%= event.description %></p>
+            <p class="bordered">Event Date: <%= event.date %></p>
+            <p class="bordered">Event Location: <%= event.location %></p>
+          </div>
         </div>
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Event-date: <%= event.date %></li>
-          <li class="list-group-item">Event Location: <%= event.location %></li>
-          <%= link_to "Edit event", edit_event_path(event.id) %>
-        </ul>
+        <% end %>
       </div>
-      <% end %>
       <hr>
   </div>
+
   <div class="row">
-    <h2 class="header-1 bg-alert text-info">Upcoming Events<%= current_user.name.capitalize %></h1>
-      <div class="badge badge-pill badge-dark"><span class="badge badge-light">
-          <%= pluralize(@upcoming_events.count, "event") %>.</span> </div>
+    <h2 class="header-1 text-light bg-success">Upcoming Events of User:<%= @user.name.capitalize %></h1>
+      <div class="badge badge-pill badge-dark mb-3"><span class="badge badge-light">
+          <%= pluralize(@upcoming_events.count, "upcoming event") %>.</span> </div>
       <% @upcoming_events.each do |event| %>
-      <div class="card d-inline-block border border-warning rounded m-3" style="width: 28rem;">
-        <div class="card-header bg-info mt-2">
-          <h4 class="text-center text-danger">Event Description: <%= event.description %></h4>
+      <div class="card-type">
+        <div class="text-center">
+          <p class="bordered">Event Description: <%= event.description %></p>
+          <p class="bordered">Event Date: <%= event.date %></p>
+          <p class="bordered">Event Location: <%= event.location %></p>
         </div>
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Event-date: <%= event.date %></li>
-          <li class="list-group-item">Event Location: <%= event.location %></li>
-          <%= link_to "Edit event", event_path(event) %>
-        </ul>
       </div>
       <% end %>
       <hr>
   </div>
+
+  <div class="row">
+    <h2 class="header-1 bg-warning">Past events created by User:<%= @user.name.capitalize %></h1>
+      <div class="badge badge-pill badge-dark"><span class="badge badge-light">
+          <%= pluralize(@prev_events.count, "previous event") %>.</span> </div>
+      <% @prev_events.each do |event| %>
+      <div class="card-type">
+        <div class="text-center">
+          <p class="bordered">Event Description: <%= event.description %></p>
+          <p class="bordered">Event Date: <%= event.date %></p>
+          <p class="bordered">Event Location: <%= event.location %></p>
+        </div>
+      </div>
+      <% end %>
+      <hr>
+  </div>
+  <%= link_to 'Edit user', edit_user_path(@user) %> |
+  <%= link_to 'Back to users list', users_path %>
 </section>

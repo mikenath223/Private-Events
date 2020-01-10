@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     include UsersHelper
+    before_action :auth?
 
     def Signin(user)
         cookies.permanent.signed[:user_id] = user.id

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'users#show'
 
-  get 'users/', to: 'users#new'
-  post 'users/', to: 'users#create'
   get '/logout', to: 'users#logout'
   resources :users
   resources :events

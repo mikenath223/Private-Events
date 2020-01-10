@@ -6,9 +6,9 @@ body {
 }
 
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 nav .nav .user-btn {
@@ -29,7 +29,10 @@ nav .nav .user-btn {
   @include box_sizing;
 }
 
-input, textarea, select, .uneditable-input {
+input,
+textarea,
+select,
+.uneditable-input {
   border: 2px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -76,4 +79,20 @@ input {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.container-cards {
+  overflow: hidden;
+  .card-type {
+    float: left;
+    border: 2px solid gray;
+    margin: 5px;
+    padding: 5px;
+  }
+  .card-type .bordered {
+    font-size: 15px;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+  }
 }
