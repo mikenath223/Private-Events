@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "GET '/sessions/new'", :type => :feature do
+describe "GET '/signin'", :type => :feature do
     it 'Shows the sign in form' do
       visit('http://localhost:3000/signin')
       expect(page).to have_content("Email")
