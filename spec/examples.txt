@@ -1,0 +1,4 @@
+example_id                      | status | run_time      |
+------------------------------- | ------ | ------------- |
+./spec/Signin/Sign_spec.rb[1:1] | passed | 1.66 seconds  |
+./spec/Signin/Sign_spec.rb[2:1] | passed | 10.22 seconds |

@@ -1,27 +1,24 @@
 require 'rails_helper'
 
-describe "GET '/signin'", :type => :feature do
+RSpec.describe "GET '/signin'", :type => :feature do
     it 'Shows the sign in form' do
-      visit('http://localhost:3000/signin')
+      visit('signin')
       expect(page).to have_content("Email")
-      expect(page).to have_content("Password")
-      puts 'You can enter credentials here'
+      puts 'Log in'
     end
-  end
+end
 
-describe "the signin process", type: :feature do
+RSpec.describe "the signin process", type: :feature do
     before :each  do
         User.create(name: 'MarioDena', email: 'testbot@gmail.com', password: 'password')
-      end
+    end
 
     it "Sign in when correct credentials" do
-      visit '/sessions/new'
-      find('.form-control').fill_in('name', with: 'testbot@gmail.com')
-
-      end
+      visit 'signin'
+      find('#signin-email').fill_in('session_email', with: 'testbot@gmail.com')
       sleep(5)
-      click_button 'Sign in'
+      click_button 'Log in'
       sleep(5)
-      expect(page).to have_content 'Logged in'
+      expect(page).to have_content 'Hi MarioDena !'
     end
-  end
+end
