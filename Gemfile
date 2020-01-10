@@ -16,6 +16,7 @@ gem 'minitest'
 gem 'minitest-reporters'
 gem 'puma', '4.3.1'
 gem 'rails-controller-testing'
+gem 'chromedriver-helper'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
@@ -46,6 +47,9 @@ end
 
 
 group :development, :test do
+  gem "database_cleaner"
+  gem 'rspec-rails'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -61,9 +65,11 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  # gem 'capybara', '>= 2.15'
+  # gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 
