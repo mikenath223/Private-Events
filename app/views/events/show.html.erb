@@ -8,15 +8,15 @@
     <p><strong>Description:</strong> <%= @event.description %> </p>
   </div>
   <div class="row">
-    <p class="text-info">Event Attendees</p>
+    <h3 class="text-primary">Event Attendees</h3>
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
+          <th class="display-1">Name</th>
         </tr>
       </thead>
       <tbody>
-        <%= @event.attendees.each do |attendee| %>
+        <% @event.attendees.each do |attendee| %>
         <tr>
           <td scope=row><%= attendee.name %></td>
         </tr>

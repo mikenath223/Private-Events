@@ -1,19 +1,38 @@
 <%= provide(:title, "All Events") %>
-<div class="container col-md-6 col-md-offset-1">
-  <h1 class="text-grey">All Events</h1>
-  <% @events.each do |event| %>
-  <div class="card" style="width: 28rem;">
-    <div class="card-header bg-info">
-     <h3 class="text-center"><%= event.id %></h3>
-     <h4 class="">Hosted by: <%= show_creator(event) %></h4>
+<section class="container col-md-6 col-md-offset-1">
+  <h1 class="text-grey">All Listed Events</h1>
+  <h4 class="text-danger"><%= Time.now.strftime("Today is %A the %dth of %B, %Y") %> and below is a list of events arranged in categories.</h4>
+
+  <h3>Upcoming Events</h3>
+  <div class="container-cards">
+    <% @upcoming_events.each do |event| %>
+    <div class="card-type">
+      <div class="text-center">
+        <h4 class="">Hosted by: <%= show_creator(event) %></h4>
+        <p class="bordered">Event Description: <%= event.description %></p>
+        <p class="bordered">Event Date: <%= event.date %></p>
+        <p class="bordered">Event Location: <%= event.location %></p>
+        <p class="bordered"><%= link_to 'Attend Event', attend_path(event) %></p>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Event-date: <%= event.date %></li>
-      <li class="list-group-item">Event Location: <%= event.location %></li>
-      <li class="list-group-item">What's it about? <br> <%= event.description %></li>
-    </ul>
-    <%= link_to "View event", event_path(event.id) %>
+    <% end %>
   </div>
-  <% end %>
+
   <hr>
-</div>
+
+  <h3>Past Events</h3>
+  <div class="container-cards">
+    <% @prev_events.each do |event| %>
+    <div class="card-type">
+      <div class="text-center">
+        <h4 class="">Hosted by: <%= show_creator(event) %></h4>
+        <p class="bordered">Event Description: <%= event.description %></p>
+        <p class="bordered">Event Date: <%= event.date %></p>
+        <p class="bordered">Event Location: <%= event.location %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <hr>
+
+</section>

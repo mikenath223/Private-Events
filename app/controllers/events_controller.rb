@@ -24,7 +24,6 @@ class EventsController < ApplicationController
 
     def show
         @current_user = current_user
-        # @event_creator = User.find(Event.find(params[:id]).creator_id)
     end
 
     def edit
