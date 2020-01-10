@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'events#index'
 
   get '/logout', to: 'users#logout'
   resources :users

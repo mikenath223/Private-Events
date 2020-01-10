@@ -12,7 +12,9 @@
         <p class="bordered">Event Description: <%= event.description %></p>
         <p class="bordered">Event Date: <%= event.date %></p>
         <p class="bordered">Event Location: <%= event.location %></p>
+        <p class="bordered"><%= link_to 'View Attendees', event_path(event) %></p>
         <p class="bordered"><%= link_to 'Attend Event', attend_path(event) %></p>
+
       </div>
     </div>
     <% end %>
@@ -29,6 +31,7 @@
         <p class="bordered">Event Description: <%= event.description %></p>
         <p class="bordered">Event Date: <%= event.date %></p>
         <p class="bordered">Event Location: <%= event.location %></p>
+        <p class="bordered"><%= link_to 'View Attendees', event_path(event) %></p>
       </div>
     </div>
     <% end %>

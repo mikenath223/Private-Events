@@ -5,11 +5,12 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
         <% if signed? %>
-         <li class="user-btn btn btn-info">Hi <%= current_user.name %>!</li>
+         <li class="user-btn "><%= link_to "Hi #{current_user.name} !" , user_path(current_user) %></li>
+         <li><%= link_to "New Event", new_event_path %></li>
          <li><%= link_to "Logout", logout_path %></li>
         <% else %>
-         <li><%= link_to "Sign up", users_path %></li>
-          <li><%= link_to "Sign in", signin_path %></li>
+        <li><%= link_to "Sign up", new_user_path %></li>
+        <li><%= link_to "Sign in", signin_path %></li>
         <% end %>
       </ul>
     </nav>

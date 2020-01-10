@@ -22,5 +22,6 @@
       </tbody>
     </table>
   </div>
-  <%= link_to 'Edit event', edit_event_path(@event) %> | <%= link_to 'Go to events list', events_path %>
+  <% if check_owner @event %>
+  <%= link_to 'Edit event', edit_event_path(@event)  %> | <% end %> <%= link_to 'Go to events list', events_path %>
 </section>

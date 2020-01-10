@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
     before_action :set_event, :auth?, only: %i[show edit update attend_event]
-
+    before_action :auth?, only: :index 
     def index
         @upcoming_events = Event.upcoming_events
         @prev_events = Event.prev_events

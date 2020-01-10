@@ -12,9 +12,26 @@ body {
 }
 
 nav .nav .user-btn {
-  padding-top: 7px;
-  margin-top: 5px;
-  font-size: 17px;
+  margin: 4px;
+  height: 46px;
+  background-color: lightblue;
+  border-radius: 5px;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a{
+    border-radius: 5px;
+    height: 46px;
+    margin-top: -6px;
+  }
+
+  @include box_sizing;
+  &:hover{
+    background-color: white;
+    border-color: lightblue;
+  }
 }
 
 .navbar-custom {
