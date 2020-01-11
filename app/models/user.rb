@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-  before_save { self.email = email.downcase }
 
   has_many :user_events
 
@@ -9,6 +8,6 @@ class User < ApplicationRecord
   
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, uniqueness: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :password, presence: true, length: { minimum: 6 }
 
 end

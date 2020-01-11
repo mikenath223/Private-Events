@@ -6,7 +6,15 @@ RSpec.describe "GET '/signin'", :type => :feature do
       expect(page).to have_content("Email")
       puts 'Log in'
     end
+
+    it 'Must be signed in to enter' do
+      visit('/events')
+      expect(page).to have_content('Log in')
+      
+      puts 'You must be signed in to complete this action'
+    end
 end
+
 
 RSpec.describe "the signin process", type: :feature do
     before :each  do
@@ -20,5 +28,15 @@ RSpec.describe "the signin process", type: :feature do
       click_button 'Log in'
       sleep(5)
       expect(page).to have_content 'Hi MarioDena !'
+    end
+
+    it "Sign out" do
+      visit 'signin'
+      find('#signin-email').fill_in('session_email', with: 'testbot@gmail.com')
+      sleep(5)
+      click_button 'Log in'
+      visit '/logout'
+      sleep(5)
+      expect(page).to have_content 'Log in'
     end
 end
