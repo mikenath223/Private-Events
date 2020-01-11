@@ -7,17 +7,21 @@
   </div>
   <div class="row">
     <h2 class="text-primary">Event Attendees</h2>
-    <table class="table">
+    <table class="table table-bordered table-stripped col-4">
       <thead>
         <tr>
+          <th class="text-danger">No.</th>
           <th class="text-danger">Event Attendee Name</th>
         </tr>
       </thead>
       <tbody>
+      <% i = 1 %>
         <% @event.attendees.each do |attendee| %>
         <tr>
+          <td scope=row><%= "#{i}" %></td>
           <td scope=row><%= attendee.name %></td>
         </tr>
+        <% i += 1 %>
         <% end %>
       </tbody>
     </table>

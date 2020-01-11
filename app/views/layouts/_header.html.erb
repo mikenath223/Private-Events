@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
         <% if signed? %>
-         <li class="user-btn "><%= link_to "Hi #{current_user.name} !" , user_path(current_user) %></li>
+         <li class="user-btn "><%= link_to "#{current_user.name} Events" , user_path(current_user) %></li>
          <li><%= link_to "New Event", new_event_path %></li>
          <li><%= link_to "Logout", logout_path %></li>
         <% else %>

@@ -24,15 +24,17 @@
     <h2 class="header-1 text-light bg-success">Upcoming Events of User:<%= @user.name.capitalize %></h1>
       <div class="badge badge-pill badge-dark mb-3"><span class="badge badge-light">
           <%= pluralize(@upcoming_events.count, "upcoming event") %>.</span> </div>
-      <% @upcoming_events.each do |event| %>
-      <div class="card-type">
-        <div class="text-center">
-          <p class="bordered">Event Description: <%= event.description %></p>
-          <p class="bordered">Event Date: <%= event.date %></p>
-          <p class="bordered">Event Location: <%= event.location %></p>
+      <div class="container-cards">
+        <% @upcoming_events.each do |event| %>
+        <div class="card-type">
+          <div class="text-center">
+            <p class="bordered">Event Description: <%= event.description %></p>
+            <p class="bordered">Event Date: <%= event.date %></p>
+            <p class="bordered">Event Location: <%= event.location %></p>
+          </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
       <hr>
   </div>
 
@@ -40,15 +42,17 @@
     <h2 class="header-1 bg-warning">Past events created by User:<%= @user.name.capitalize %></h1>
       <div class="badge badge-pill badge-dark"><span class="badge badge-light">
           <%= pluralize(@prev_events.count, "previous event") %>.</span> </div>
-      <% @prev_events.each do |event| %>
-      <div class="card-type">
-        <div class="text-center">
-          <p class="bordered">Event Description: <%= event.description %></p>
-          <p class="bordered">Event Date: <%= event.date %></p>
-          <p class="bordered">Event Location: <%= event.location %></p>
+      <div class="container-cards">
+        <% @prev_events.each do |event| %>
+        <div class="card-type">
+          <div class="text-center">
+            <p class="bordered">Event Description: <%= event.description %></p>
+            <p class="bordered">Event Date: <%= event.date %></p>
+            <p class="bordered">Event Location: <%= event.location %></p>
+          </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
       <hr>
   </div>
   <%= link_to 'Edit user', edit_user_path(@user) %> |

@@ -1,9 +1,34 @@
 <%= provide(:title, "All Events") %>
-<section class="container col-md-6 col-md-offset-1">
+<section class="container-fluid p-5">
   <h1 class="text-grey">All Listed Events</h1>
-  <h4 class="text-danger"><%= Time.now.strftime("Today is %A the %dth of %B, %Y") %> and below is a list of events arranged in categories.</h4>
+  <h4 class="text-danger"><%= Time.now.strftime("Today is %A the %dth of %B, %Y") %> and below is a list of events
+    arranged in categories.</h4>
+    
+    <div class="links"> <a href="#now">View Present Events</a> <a href="#future">View Upcoming Events</a> <a href="#past">View Past Events</a> </div>
+    
+    <h2 class="bg-danger" id="now">Events Happening Today</h2>
+    <div class="badge badge-pill badge-dark mb-4"><span class="badge badge-light">
+      <%= pluralize(@present_events.count, "event") %>.</span> </div>
+    <div class="container-cards">
+      <% @present_events.each do |event| %>
+      <div class="card-type">
+        <div class="text-center">
+          <h4 class="">Hosted by: <%= show_creator(event) %></h4>
+          <p class="bordered">Event Description: <%= event.description %></p>
+          <p class="bordered">Event Date: <%= event.date %></p>
+          <p class="bordered">Event Location: <%= event.location %></p>
+          <p class="bordered"><%= link_to 'View Attendees', event_path(event) %></p>
+          <p class="bordered bg-danger text-light"><%= link_to 'Attend Event', attend_path(event) %></p>
 
-  <h3>Upcoming Events</h3>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+
+  <h1 class="bg-danger" id="future">Upcoming Events</h1>
+  <div class="badge badge-pill badge-dark mb-4"><span class="badge badge-light">
+    <%= pluralize(@upcoming_events.count, "event") %>.</span> </div>
   <div class="container-cards">
     <% @upcoming_events.each do |event| %>
     <div class="card-type">
@@ -22,7 +47,9 @@
 
   <hr>
 
-  <h3>Past Events</h3>
+  <h1 class="bg-danger" id="past">Past Events</h1>
+  <div class="badge badge-pill badge-dark mb-4"><span class="badge badge-light">
+    <%= pluralize(@prev_events.count, "event") %>.</span> </div>
   <div class="container-cards">
     <% @prev_events.each do |event| %>
     <div class="card-type">

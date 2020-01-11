@@ -4,6 +4,7 @@ class EventsController < ApplicationController
     def index
         @upcoming_events = Event.upcoming_events
         @prev_events = Event.prev_events
+        @present_events = Event.present_events
     end
 
     def new
