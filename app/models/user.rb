@@ -11,8 +11,8 @@ class User < ApplicationRecord
   has_many :attended_events, -> { distinct }, through: :user_events, source: 'event'
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :email, presence: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/, 
-  uniqueness: true
+  validates :email, presence: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/,
+                    uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
 
   # Returns the hash digest of the given string.

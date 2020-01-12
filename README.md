@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://www.microverse.org/">
-    <img src="doc/microverse.png" alt="Logo" width="80" height="80">
+    <img src="docs/microverse.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">
@@ -31,7 +31,6 @@
   </p>
 </p>
 
-# Advanced Forms and Active Record
 ## Project: Associations
 Users can create events and send invitations and parties. Events take place at a specific date and at a location. An application named Private Events that behaves similar to [Eventbrite](https://www.eventbrite.com/). The main goal is to put in practice the main concepts of Associations in rails.
 
@@ -53,7 +52,8 @@ Users can create events and send invitations and parties. Events take place at a
 * Using different databases for development (sqlite3) and production (postgres)
 * Associates several tables on the database using foreign keys:
 
-![models](docs/schema.png)
+<img src="docs/schema.png" alt="Schema" width="400" height="400">
+
 
 * Use of `cookies` and `flash`
 * Modify `routes.rb`
