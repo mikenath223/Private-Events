@@ -1,5 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
+require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   it { should have_db_column(:date) }
@@ -9,9 +10,3 @@ RSpec.describe Event, type: :model do
   it { should have_db_index(:creator_id) }
   it { should have_many(:attendees) }
 end
-
-# RSpec.describe Event, type: :model do
-#     it do
-#     should have_db_column(:date)
-#   end
-# end

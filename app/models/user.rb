@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  before_save { email.downcase! }
+  attr_accessor :remember_token
+
   has_secure_password
 
   has_many :user_events
@@ -10,7 +11,8 @@ class User < ApplicationRecord
   has_many :attended_events, -> { distinct }, through: :user_events, source: 'event'
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :email, presence: true, uniqueness: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
+  validates :email, presence: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/, 
+  uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
 
   # Returns the hash digest of the given string.

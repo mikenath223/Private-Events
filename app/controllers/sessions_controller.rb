@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   skip_before_action :auth?, only: %i[new create]
 
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:session][:email])
@@ -13,9 +14,9 @@ class SessionsController < ApplicationController
       signed?
 
       redirect_to root_path
-      flash[:success] = "Signed in successfully"
+      flash[:success] = 'Signed in successfully'
     else
-      flash.now[:danger] ='User doesn\'t exist'
+      flash.now[:danger] = 'User doesn\'t exist'
       render 'new'
     end
   end

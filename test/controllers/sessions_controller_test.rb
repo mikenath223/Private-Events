@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
@@ -10,5 +12,4 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   #   get sessions_create_url
   #   assert_response :success
   # end
-
 end

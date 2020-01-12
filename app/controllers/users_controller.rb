@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @prev_events = @user.attended_events.prev_events
   end
 
-  def edit;end
+  def edit; end
 
   def update
     if @user.update(update_params)
@@ -59,5 +59,4 @@ class UsersController < ApplicationController
   def update_params
     params.require(:user).permit(:name)
   end
-
 end
