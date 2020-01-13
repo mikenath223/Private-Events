@@ -21,7 +21,7 @@
   </div>
 
   <div class="row">
-    <h2 class="header-1 text-light bg-success">Upcoming Events of User:<%= @user.name.capitalize %></h1>
+    <h2 class="header-1 text-light bg-success">Events you have been booked to attend. <br> Upcoming Events of User: <%= @user.name.capitalize %></h1>
       <div class="badge badge-pill badge-dark mb-3"><span class="badge badge-light">
           <%= pluralize(@upcoming_events.count, "upcoming event") %>.</span> </div>
       <div class="container-cards">
