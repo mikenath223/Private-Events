@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include UsersHelper
   before_action :auth?
 
-  def Signin(user)
+  def sign_in(user)
     cookies.permanent.signed[:user_id] = user.id
     current_user
   end
@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
   end
 
   def auth?
-    unless signed?
-      redirect_to signin_path
-      flash[:danger] = 'You must be signed in to complete this action'
-    end
+    return if signed?
+
+    redirect_to signin_path
+    flash[:danger] = 'You must be signed in to complete this action'
   end
 end

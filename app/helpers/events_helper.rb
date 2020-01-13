@@ -6,6 +6,6 @@ module EventsHelper
   end
 
   def check_owner(event)
-    link_to 'Edit event', edit_event_path(event)  if event.creator_id == current_user.id
+    link_to 'Edit event | ', edit_event_path(event) if event.creator_id == current_user.id
   end
 end

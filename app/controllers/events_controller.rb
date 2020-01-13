@@ -10,7 +10,6 @@ class EventsController < ApplicationController
   end
 
   def new
-    @current_user = current_user
     @event = Event.new
   end
 
@@ -24,9 +23,7 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-    @current_user = current_user
-  end
+  def show; end
 
   def edit; end
 
@@ -34,6 +31,8 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       flash[:success] = 'Event successfully updated'
       redirect_to event_path
+    else
+      render :edit
     end
   end
 
@@ -43,8 +42,8 @@ class EventsController < ApplicationController
       redirect_to @event
       flash[:success] = 'Cheers!!! You were successfully booked for this event!'
     else
-      flash.now[:alert] = 'There was a problem booking you for the event.'
-      render :new
+      flash.now[:danger] = 'Seems you have already been booked for this event. Kindly check below.'
+      render :show
     end
   end
 
