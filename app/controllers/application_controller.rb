@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   include UsersHelper
   before_action :auth?
 
-  def sign_in(user)
-    cookies.permanent.signed[:user_id] = user.id
-    current_user
-  end
+  # def sign_in(user)
+  #   cookies.permanent.signed[:user_id] = user.id
+  #   current_user
+  # end
 
   def logout
     cookies.delete(:user_id)

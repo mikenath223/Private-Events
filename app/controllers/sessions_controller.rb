@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email])
     if user
-      sign_in user
+      remember(user)
       redirect_to root_path
       flash[:success] = 'Signed in successfully'
     else

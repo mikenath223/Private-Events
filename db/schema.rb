@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,36 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_109_213_253) do
-  create_table 'events', force: :cascade do |t|
-    t.date 'date'
-    t.string 'location'
-    t.string 'description'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'creator_id'
-    t.index ['creator_id'], name: 'index_events_on_creator_id'
+ActiveRecord::Schema.define(version: 2020_01_13_161256) do
+
+  create_table "events", force: :cascade do |t|
+    t.date "date"
+    t.string "location"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "creator_id"
+    t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 
-  create_table 'user_events', force: :cascade do |t|
-    t.integer 'user_id', null: false
-    t.integer 'event_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['event_id'], name: 'index_user_events_on_event_id'
-    t.index ['user_id'], name: 'index_user_events_on_user_id'
+  create_table "user_events", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_user_events_on_event_id"
+    t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'name'
-    t.string 'email'
-    t.string 'password_digest'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['email'], name: 'index_users_on_email', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "remember_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key 'events', 'users', column: 'creator_id'
-  add_foreign_key 'user_events', 'events'
-  add_foreign_key 'user_events', 'users'
+  add_foreign_key "events", "users", column: "creator_id"
+  add_foreign_key "user_events", "events"
+  add_foreign_key "user_events", "users"
 end

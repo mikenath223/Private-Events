@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      sign_in @user
+      remember(@user)
       flash[:success] = 'Welcome to the app'
       redirect_to new_event_path
     else

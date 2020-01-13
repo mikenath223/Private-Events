@@ -46,9 +46,11 @@ j = 0
   puts "Created 10 events for user #{i}..."
 end
 
-200.times do |_i|
+puts 'Creating attendees...'
+200.times do
   users_reorder.each do |u|
     rand_gen_attendees = rand(1..200)
-    u.user_events.create!(event_id: rand_gen_attendees)
+    attendance = u.user_events.build(event_id: rand_gen_attendees)
+    next if !attendance.save
   end
 end
