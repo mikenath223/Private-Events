@@ -32,14 +32,16 @@ def rand_date(n)
   Date.today + int
 end
 
+j = 0
 10.times do |i|
-  date = rand_date(i)
   location = Faker::Address.street_address + ', ' + Faker::Address.city
   description = Faker::Lorem.sentence(5)
   users.each do |u|
+    date = rand_date(j)
     u.events.create!(date: date,
                      location: location,
                      description: description)
+    j += 1
   end
   puts "Created 10 events for user #{i}..."
 end
