@@ -1,0 +1,26 @@
+<%= provide(:title, "All users") %>
+
+<section class="container-fluid">
+  <h1>All Users</h1>
+  <table class="table table-bordered table-stripped col-12">
+    <thead class="bg-info">
+      <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="text-center"><%= user.name %></td>
+          <td class="text-center"><%= user.email %></td>
+          <td class="text-center"><%= link_to 'Show', user %></td>
+          <td class="text-center"><%= link_to 'Edit', edit_user_path(user)%></td>
+          <td class="text-center"><%= link_to 'Delete user', user, method: :delete, data: { confirm: 'Are you really sure?!' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Create new user', new_user_path %>
+</section>
