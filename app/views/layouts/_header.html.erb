@@ -4,8 +4,13 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "Sign up", users_path %></li>
-        <li><%= link_to "Sign in", '#'%></li>
+        <% if signed? %>
+         <li class="user-btn btn btn-info"><%= current_user %></li>
+         <li><%= link_to "Logout", logout_path %></li>
+        <% else %>
+         <li><%= link_to "Sign up", users_path %></li>
+          <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
