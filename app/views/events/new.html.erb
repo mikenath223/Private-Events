@@ -1,20 +1,7 @@
 <%= provide(:title, "Create an event") %>
-<div class="row">
+<div class="row form-container">
   <div class="col-md-6 col-md-offset-3 form-wrap">
     <h1>Create a New Event</h1>
-    <%= form_for @event do |f|  %>
-    <%= render 'shared/error_messages', object: f.object %>
-    <%= f.label :date %>
-    <%= f.date_field :date, class: 'form-control' %>
-
-    <%= f.label :location, "Location" %>
-    <%= f.text_field :location, class: 'form-control' %>
-
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control' %>
-
-    <%= f.submit "Create Event", class: "btn btn-primary" %>
-    <% end %>
-
+    <%= render partial: 'form', locals: { event: @event } %>
   </div>
 </div>
