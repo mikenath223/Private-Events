@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import url('https://fonts.googleapis.com/css?family=Sriracha&display=swap');
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -8,9 +8,10 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
   @include box_sizing;
-  padding-top: 60px;
+  padding-top: 10px;
 }
 
 nav .nav .user-btn {
@@ -105,6 +106,7 @@ input {
   @include box_sizing;
   padding: 0;
   margin-top: 35px;
+  width: 100%;
 }
 
 header {
@@ -114,13 +116,20 @@ header {
 .container-home {
   @include box_sizing;
   margin: 0;
-  width: 100%;
   height: 90vh;
   background: center / cover url(/assets/man-in-cafe-on-laptop-720x380.jpg) no-repeat ;
   opacity: 0.8;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  h2 {
+    color: orangered;
+    font-family: 'Sriracha', cursive;
+    text-shadow: black;
+    width: 40%;
+    margin-left: -20%;
+  }
 }
 
 .box,
@@ -139,7 +148,7 @@ header {
 .create-event {
   width: 40%;
   margin-right: 20%;
-  margin-bottom: 60%;
+  margin-top: 10px;
   a {
     border: 3px solid black;
     font-size: 2.5rem;
