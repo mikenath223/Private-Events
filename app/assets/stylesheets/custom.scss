@@ -123,6 +123,19 @@ header {
   justify-content: center;
 }
 
+.box,
+.form-container {
+  padding: 0 30px;
+}
+
+.form-container {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .create-event {
   width: 40%;
   margin-right: 20%;
