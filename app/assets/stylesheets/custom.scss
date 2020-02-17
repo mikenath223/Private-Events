@@ -1,14 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-  padding-top: 60px;
-}
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+body {
+  @include box_sizing;
+  padding-top: 60px;
 }
 
 nav .nav .user-btn {
@@ -21,14 +23,14 @@ nav .nav .user-btn {
   align-items: center;
   justify-content: center;
 
-  a{
+  a {
     border-radius: 5px;
     height: 46px;
     margin-top: -6px;
   }
 
   @include box_sizing;
-  &:hover{
+  &:hover {
     background-color: white;
     border-color: lightblue;
   }
@@ -98,6 +100,22 @@ input {
   @include box_sizing;
 }
 
+
+.container {
+  @include box_sizing;
+  padding: 0;
+  margin-top: 35px;
+}
+
+.container-home {
+  @include box_sizing;
+  margin: 0;
+  width: 100%;
+  height: 90vh;
+  background: center / cover url(/assets/man-in-cafe-on-laptop-720x380.jpg) no-repeat ;
+  opacity: 0.8;
+}
+
 .container-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -129,5 +147,21 @@ input {
     & * {
       margin: 3px;
     }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #logo {
+    display: block;
+    width: 100vw;
+  }
+  .nav {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-around;
+  }
+  nav {
+    margin-right: 5px;
+    margin-left: auto;
   }
 }
