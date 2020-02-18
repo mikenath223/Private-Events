@@ -56,6 +56,8 @@ Users can create events and send invitations and parties. Events take place at a
 * Using different databases for development (sqlite3) and production (postgres)
 * Associates several tables on the database using foreign keys:
 
+<img src="docs/screenshot.png" alt="project-screenshot" width="600px" height="500px"/>
+
 <img src="docs/schema.png" alt="Schema" width="400" height="400">
 
 
