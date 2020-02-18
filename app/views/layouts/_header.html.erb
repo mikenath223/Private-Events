@@ -1,18 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-custom">
-  <div class="container">
-    <%= link_to "private events app", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
-        <% if signed? %>
-         <li class="user-btn "><%= link_to "#{current_user.name} Events" , user_path(current_user) %></li>
-         <li><%= link_to "New Event", new_event_path %></li>
-         <li><%= link_to "Logout", logout_path %></li>
-        <% else %>
-        <li><%= link_to "Sign up", new_user_path %></li>
-        <li><%= link_to "Sign in", signin_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+  <%= link_to "private events app", root_path, id: "logo" %>
+    <ul class="nav navbar-nav navbar-right">
+      <% if signed? %>
+      <li class="user-btn "><%= link_to "#{current_user.name.split(" ")[0]} Events" , user_path(current_user) %></li>
+      <li><%= link_to "New Event", new_event_path %></li>
+      <li><%= link_to "Logout", logout_path %></li>
+      <% else %>
+      <li><%= link_to "Sign up", new_user_path %></li>
+      <li><%= link_to "Sign in", signin_path %></li>
+      <% end %>
+    </ul>
 </header>

@@ -1,0 +1,13 @@
+<%= form_for(event) do |f|  %>
+<%= render 'shared/error_messages', object: f.object %>
+<%= f.label :date %>
+<%= f.date_field :date, class: 'form-control' %>
+
+<%= f.label :location, "Location" %>
+<%= f.text_field :location, class: 'form-control' %>
+
+<%= f.label :description %>
+<%= f.text_area :description, class: 'form-control' %>
+
+<%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
