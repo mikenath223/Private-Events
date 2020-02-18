@@ -50,13 +50,15 @@ Users can create events and send invitations and parties. Events take place at a
 * Run `rails s` to start rails server
 * Go to `localhost:3000` have fun :)
 
+# Screenshot
+<img src="docs/screenshot.png" alt="project-screenshot" width="600px" height="500px"/>
+
 # Features
 
 * Followed the [tutorial](https://www.learnenough.com/ruby-on-rails-4th-edition-tutorial/user_microposts) 
 * Using different databases for development (sqlite3) and production (postgres)
 * Associates several tables on the database using foreign keys:
 
-<img src="docs/screenshot.png" alt="project-screenshot" width="600px" height="500px"/>
 
 <img src="docs/schema.png" alt="Schema" width="400" height="400">
 
