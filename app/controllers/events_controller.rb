@@ -11,14 +11,21 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @users = User.all.sample(10)
   end
 
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      redirect_to root_path
+      params[:event][:attendees]&.each do |u|
+        next if u == 'None' || u.blank?
+
+        User.find(u).user_events.create(event_id: @event.id)
+      end
+      redirect_to event_path(@event)
       flash[:success] = 'Event created!'
     else
+      flash.now[:alert] = 'Error creating event'
       render 'new'
     end
   end
@@ -54,6 +61,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:date, :location, :description)
+    params.require(:event).permit(:date, :location, :description, :attendees)
   end
 end
