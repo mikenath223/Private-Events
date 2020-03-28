@@ -13,6 +13,7 @@ html {
   @include box_sizing;
   padding-top: 10px;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .nav {
@@ -37,16 +38,22 @@ html {
       border-color: lightblue;
     }
   }
-  li a {
-    font-size: 18px;
-    font-weight: 500;
-    color: black;
-    padding: 0;
-    margin: 0;
+  li {
+    a {
+      font-size: 18px;
+      font-weight: 500;
+      color: black;
+      padding: 0;
+      margin: 0;
+    }
   }
 }
 
 .navbar-custom {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  overflow: hidden;
   background-color: #53200779;
 }
 
@@ -73,8 +80,7 @@ input {
 }
 
 #logo {
-  float: left;
-  margin-left: 20px;
+  margin: 0 auto 0 20px;
   font-size: 1.7em;
   color: black;
   text-transform: uppercase;
@@ -160,6 +166,54 @@ header {
   flex-direction: column;
 }
 
+.form-wrap {
+  max-width: 600px;
+  min-width: 250px;
+  margin: 30px auto;
+  h1 {
+    color: rgb(20, 18, 122);
+    position: relative;
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-size: 25px;
+    text-align: center;
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      min-width: 80px;
+      z-index: -5;
+      height: 5px;
+      right: 150px;
+      top: 30px;
+      background-color: rgba(69, 8, 97, 0.418);
+      transition: 2.5s linear;
+    }
+    &::before {
+      max-width: 70px;
+      left: 150px;
+      top: -5px;
+    }
+  }
+  input {
+    @include box_sizing;
+    border-radius: 10px;
+  }
+  input:focus,
+  .form-control:focus {
+    border: 2px solid rgba(0, 0, 255, 0.5);
+    box-shadow: 0px 0px 10px rgba(0, 0, 255, 0.514);
+  }
+  input[type="submit"] {
+    background-color: rgb(20, 18, 122);
+    font-size: 22px;
+    height: 50px;
+    width: 200px;
+    display: block;
+    margin: auto;
+  }
+}
+
 .create-event {
   width: 40%;
   margin-right: 20%;
@@ -204,6 +258,26 @@ header {
   }
 }
 
+.form-container {
+  margin: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 1030px) {
+  .form-wrap {
+    h1 {
+      &::before {
+        left: 90px;
+      }
+      &::after {
+        right: 90px;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 800px) {
   #logo {
     display: block;
@@ -222,6 +296,15 @@ header {
       margin-left: 20%;
     }
   }
+  .form-wrap {
+    margin-top: 30px;
+    h1 {
+      &::after {
+        width: 90px;
+        top: 30px;
+      }
+    }
+  }
   .navbar {
     display: flex;
     flex-direction: column;
@@ -233,6 +316,33 @@ header {
     width: 100%;
     li a {
       font-size: 14px;
+    }
+  }
+
+  .form-wrap {
+    h1 {
+      &::after {
+        right: 20px;
+        top: 30px;
+      }
+      &::before {
+        left: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 330px) {
+  .form-wrap {
+    h1 {
+      font-weight: 600;
+      font-size: 18px;
+      &::after {
+        top: 20px;
+      }
+    }
+    input[type="submit"] {
+      font-size: 18px;
     }
   }
 }
