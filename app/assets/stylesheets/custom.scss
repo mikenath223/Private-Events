@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url("https://fonts.googleapis.com/css?family=Sriracha&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -13,15 +14,10 @@ html {
   @include box_sizing;
   padding-top: 10px;
   overflow-x: hidden;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 40%;
-  margin-top: 8px;
+.navbar-child {
   .user-btn {
     margin: 4px;
     padding: 3px;
@@ -45,16 +41,84 @@ html {
       color: black;
       padding: 0;
       margin: 0;
+      transition: color 1s linear;
+    }
+    &:hover {
+      animation: bounce 0.2s 2 forwards;
     }
   }
 }
 
+@keyframes bounce {
+  from,
+  to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@-moz-keyframes bounce {
+  from,
+  to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+@-moz-keyframes bounce {
+  from,
+  to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
 .navbar-custom {
+  position: fixed;
+  top: 0;
+  width: 100vw;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   height: 70px;
   overflow: hidden;
-  background-color: #53200779;
+  background-color: #8f7777;
+  .navbar-child {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto 0 0;
+    justify-content: flex-end;
+    li {
+      font-size: 20px;
+      list-style: none;
+      &:first-child {
+        margin-right: 40px;
+      }
+      &:nth-child(2) {
+        margin-right: 40px;
+      }
+    }
+  }
+  #logo {
+    font-family: 'Pacifico', cursive;
+    margin: 0 auto 0 20px;
+    font-size: 1.7em;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding-top: 9px;
+    font-weight: bold;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
 
 .debug_dump {
@@ -77,20 +141,6 @@ select,
 
 input {
   height: 30px;
-}
-
-#logo {
-  margin: 0 auto 0 20px;
-  font-size: 1.7em;
-  color: black;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
 }
 
 #error_explanation {
@@ -160,16 +210,86 @@ header {
 
 .form-container {
   display: flex;
-  width: 80%;
+  max-width: 900px;
+  min-width: 300px;
+  padding-top: 40px;
   margin: 0 auto;
-  justify-content: center;
   flex-direction: column;
 }
 
+.reg {
+  border: 1px solid gray;
+  box-shadow: 0 2px 8px gray;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+  margin-top: 50px;
+  position: relative;
+  .side-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 40%;
+    z-index: -1;
+    background: center / cover url(/assets/party.jpg) no-repeat;
+    * {
+      color: #fff;
+    }
+    h1 {
+      margin-top: 30px;
+    }
+    .signup-welcome {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      margin-top: 60px;
+      width: 95%;
+      h2 {
+        margin-bottom: 20px;
+      }
+    }
+    &::before {
+      content: "";
+      background-color: rgba(16, 21, 36, 0.555);
+      position: absolute;
+      z-index: -5;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    * {
+      position: relative;
+      z-index: 6;
+    }
+  }
+}
+
+.aside-reg {
+  position: absolute;
+  z-index: 60;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  font-size: 20px;
+  margin-top: 20px;
+  bottom: 190px;
+  left: 130px;
+  width: 100px;
+  padding: 5px;
+  border: 2px solid silver;
+  a {
+    text-transform: uppercase;
+    color: #14127a;
+  }
+}
+
 .form-wrap {
-  max-width: 600px;
-  min-width: 250px;
-  margin: 30px auto;
+  width: 42%;
+  padding: 30px 0;
+  margin:  0  auto 30px auto;
   h1 {
     color: rgb(20, 18, 122);
     position: relative;
@@ -258,13 +378,6 @@ header {
   }
 }
 
-.form-container {
-  margin: 0;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
 @media (max-width: 1030px) {
   .form-wrap {
     h1 {
@@ -282,13 +395,6 @@ header {
   #logo {
     display: block;
   }
-  .nav {
-    font-size: 18px;
-    display: flex;
-    width: 80%;
-    justify-content: space-around;
-    margin: 0 0 0 auto;
-  }
   .container-home {
     margin-top: 28px;
     h2 {
@@ -296,8 +402,14 @@ header {
       margin-left: 20%;
     }
   }
+  .reg {
+    width: 96%;
+  }
+  .aside-reg {
+    left: 90px;
+  }
   .form-wrap {
-    margin-top: 30px;
+    margin-top: 0;
     h1 {
       &::after {
         width: 90px;
@@ -311,14 +423,36 @@ header {
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .nav {
-    width: 100%;
-    li a {
-      font-size: 14px;
+@media only screen and (max-width: 430px) {
+  .navbar-custom {
+    height: calc(max-content + 30px);
+    .navbar-child {
+      justify-content: initial;
+      width: 60%;
+      padding: 0;
+      li {
+        width: max-content;
+        font-size: 18px;
+        &:first-child {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+        &:nth-child(2) {
+          margin: 0;
+        }
+      }
     }
   }
-
+  .reg {
+    margin-top: 35px;
+    width: 92%;
+    .side-intro {
+      display: none;
+    }
+  }
+  .aside-reg {
+    display: none;
+  }
   .form-wrap {
     h1 {
       &::after {
@@ -333,16 +467,37 @@ header {
 }
 
 @media (max-width: 330px) {
+  .navbar-custom {
+    #logo {
+      padding: 0;
+      font-size: 18px;
+    }
+  }
   .form-wrap {
+    margin-left: 30px;
+    min-width: initial;
+    width: 100%;
     h1 {
       font-weight: 600;
       font-size: 18px;
+      width: 100%;
       &::after {
         top: 20px;
       }
     }
+    .form-control {
+      width: 90%;
+    }
     input[type="submit"] {
       font-size: 18px;
+    }
+  }
+  .signin-wrap {
+    width: 90%;
+    margin-bottom: 170px;
+    margin-top: 0;
+    .field {
+      margin-bottom: 10px;
     }
   }
 }

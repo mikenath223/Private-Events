@@ -1,6 +1,6 @@
-<header class="navbar navbar-fixed-top navbar-custom">
+<header class="navbar-custom">
   <%= link_to "Eventrix", root_path, id: "logo" %>
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="navbar-child">
       <% if signed? %>
       <li class="user-btn "><%= link_to "#{current_user.name.split(" ")[0]} Events" , user_path(current_user) %></li>
       <li><%= link_to "New Event", new_event_path %></li>
