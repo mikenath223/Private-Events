@@ -9,29 +9,24 @@
   box-sizing: border-box;
 }
 
-body,
-html {
-  @include box_sizing;
-  padding-top: 10px;
-  overflow-x: hidden;
-  min-height: 90vh;
-  background: linear-gradient(to bottom right, #2b1648, #3c0d56);
-  background: -webkit-linear-gradient(to bottom right, #2b1648, #3c0d56);
-  background: -moz-linear-gradient(to bottom right, #2b1648, #3c0d56);
-  background: -o-linear-gradient(to bottom right, #2b1648, #3c0d56);
-}
-
 body {
   position: relative;
+  @include box_sizing;
+  padding-top: 10px;
+  padding-bottom: 80px;
+  overflow-x: hidden;
+  min-height: 99.9vh;
   &::before {
     content: "";
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background: url(/assets/moodboard.jpg);
-    position: absolute;
+    position: fixed;
+    box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.3);
     left: -30px;
     top: -30px;
+    z-index: 11;
   }
 }
 
@@ -39,24 +34,22 @@ body {
   .user-btn {
     margin: 4px;
     padding: 3px;
-    background-color: lightblue;
     border-radius: 5px;
-    border: 2px solid white;
+    border: 2px solid #eb388a;
     a {
       border-radius: 5px;
     }
 
     @include box_sizing;
     &:hover {
-      background-color: white;
-      border-color: lightblue;
+      border-color: #eb3889a1;
     }
   }
   li {
     a {
       font-size: 18px;
       font-weight: 500;
-      color: black;
+      color: #fff;
       padding: 0;
       margin: 0;
       transition: color 1s linear;
@@ -103,14 +96,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 70px;
+  height: 50px;
   overflow: hidden;
-  background-color: #ff6d6d;
+  background-color: #2a1e70;
   .navbar-child {
     display: flex;
     align-items: center;
     width: 70%;
-    margin: 0 auto 0 0;
+    margin: 0 30px 0 0;
     justify-content: flex-end;
     li {
       font-size: 20px;
@@ -127,19 +120,23 @@ body {
       }
     }
   }
-  #logo {
-    font-family: "Pacifico", cursive;
-    margin: 0 auto 0 20px;
-    font-size: 1.7em;
-    color: black;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    padding-top: 9px;
-    font-weight: bold;
-    &:hover {
-      color: white;
-      text-decoration: none;
-    }
+}
+
+#logo {
+  font-family: "Pacifico", cursive;
+  margin: 0 auto 0 20px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 13;
+  &:hover {
+    color: silver;
+    text-decoration: none;
   }
 }
 
@@ -156,7 +153,48 @@ body {
 }
 
 .sign-in {
-  height: 500px;
+  height: 480px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  z-index: -10;
+  width: 100vw;
+  min-height: 50px;
+  padding: 3px 0;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #2b1648, #3c0d56);
+  background: -webkit-linear-gradient(to right, #2b1648, #3c0d56);
+  background: -moz-linear-gradient(to right, #2b1648, #3c0d56);
+  background: -o-linear-gradient(to right, #2b1648, #3c0d56);
+  nav {
+    width: 100%;
+    ul {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      li {
+        list-style: none;
+        color: #fff;
+        &:first-child {
+          color: #fff;
+          font-size: 17px;
+        }
+        img {
+          background-color: #fff;
+          border: 2px solid #eb388a;
+          border-radius: 50%;
+          cursor: pointer;
+          width: auto;
+          max-height: 30px;
+        }
+      }
+    }
+  }
 }
 
 input,
@@ -204,6 +242,7 @@ input {
 }
 
 header {
+  z-index: 10;
   padding: 0 5px;
 }
 
@@ -324,6 +363,10 @@ header {
       text-decoration: none;
     }
   }
+}
+
+.signin-but {
+  bottom: 70px;
 }
 
 .form-wrap {
@@ -502,6 +545,13 @@ header {
       }
       &::before {
         left: 20px;
+      }
+    }
+  }
+  footer {
+    nav {
+      ul {
+        flex-direction: column;
       }
     }
   }
