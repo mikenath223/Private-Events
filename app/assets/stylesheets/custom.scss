@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url("https://fonts.googleapis.com/css?family=Sriracha&display=swap");
-@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -15,6 +15,24 @@ html {
   padding-top: 10px;
   overflow-x: hidden;
   min-height: 90vh;
+  background: linear-gradient(to bottom right, #2b1648, #3c0d56);
+  background: -webkit-linear-gradient(to bottom right, #2b1648, #3c0d56);
+  background: -moz-linear-gradient(to bottom right, #2b1648, #3c0d56);
+  background: -o-linear-gradient(to bottom right, #2b1648, #3c0d56);
+}
+
+body {
+  position: relative;
+  &::before {
+    content: "";
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: url(/assets/moodboard.jpg);
+    position: absolute;
+    left: -30px;
+    top: -30px;
+  }
 }
 
 .navbar-child {
@@ -87,7 +105,7 @@ html {
   justify-content: space-around;
   height: 70px;
   overflow: hidden;
-  background-color: #8f7777;
+  background-color: #ff6d6d;
   .navbar-child {
     display: flex;
     align-items: center;
@@ -97,6 +115,10 @@ html {
     li {
       font-size: 20px;
       list-style: none;
+      a:focus,
+      a:hover {
+        text-decoration: none;
+      }
       &:first-child {
         margin-right: 40px;
       }
@@ -106,7 +128,7 @@ html {
     }
   }
   #logo {
-    font-family: 'Pacifico', cursive;
+    font-family: "Pacifico", cursive;
     margin: 0 auto 0 20px;
     font-size: 1.7em;
     color: black;
@@ -127,6 +149,14 @@ html {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.box {
+  margin-top: 40px;
+}
+
+.sign-in {
+  height: 500px;
 }
 
 input,
@@ -215,6 +245,7 @@ header {
   padding-top: 40px;
   margin: 0 auto;
   flex-direction: column;
+  background-color: #fff;
 }
 
 .reg {
@@ -224,6 +255,7 @@ header {
   justify-content: space-between;
   padding: 0;
   margin-top: 50px;
+  z-index: 5;
   position: relative;
   .side-intro {
     display: flex;
@@ -264,6 +296,9 @@ header {
       z-index: 6;
     }
   }
+  .new-event-intro {
+    background-image: url(/assets/guitarplay.jpeg);
+  }
 }
 
 .aside-reg {
@@ -281,15 +316,20 @@ header {
   padding: 5px;
   border: 2px solid silver;
   a {
+    text-decoration: none;
     text-transform: uppercase;
     color: #14127a;
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
 .form-wrap {
   width: 42%;
   padding: 30px 0;
-  margin:  0  auto 30px auto;
+  margin: 0 auto 30px auto;
   h1 {
     color: rgb(20, 18, 122);
     position: relative;
@@ -330,6 +370,7 @@ header {
     height: 50px;
     width: 200px;
     display: block;
+    border-radius: 5px;
     margin: auto;
   }
 }

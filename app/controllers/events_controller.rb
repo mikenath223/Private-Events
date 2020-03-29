@@ -26,7 +26,7 @@ class EventsController < ApplicationController
       flash[:success] = 'Event created!'
     else
       flash.now[:alert] = 'Error creating event'
-      render 'new'
+      render :new
     end
   end
 

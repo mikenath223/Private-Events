@@ -3,9 +3,10 @@
 
 
   <div class="row box">
-    <h2 class="header-1 bg-primary p-3">Events created by <%= @user.name.capitalize %></h1>
-      <div class="badge badge-pill badge-dark mb-4"><span class="badge badge-light">
-          <%= pluralize(@events.count, "event") %>.</span> </div>
+    <%= link_to 'Edit Profile', edit_user_path(@user) %> |
+    <%= link_to 'Back to users list', users_path %>
+    <h2 class="header-1 bg-primary p-3">Events created by <%= @user.name.capitalize %> <div class="badge badge-pill badge-dark mb-4"><span class="badge badge-light">
+      <%= pluralize(@events.count, "event") %>.</span> </div></h1>
       <div class="container-cards">
         <% @events.each do |event| %>
         <div class="card-type">
@@ -21,9 +22,8 @@
   </div>
 
   <div class="row">
-    <h2 class="header-1 text-light bg-success">Events you have been booked to attend. <br> Upcoming Events of User: <%= @user.name.capitalize %></h1>
-      <div class="badge badge-pill badge-dark mb-3"><span class="badge badge-light">
-          <%= pluralize(@upcoming_events.count, "upcoming event") %>.</span> </div>
+    <h2 class="header-1 text-light bg-success">Events you have been booked to attend. <br> Upcoming Events of User: <%= @user.name.capitalize %> <div class="badge badge-pill badge-dark mb-3"><span class="badge badge-light">
+      <%= pluralize(@upcoming_events.count, "upcoming event") %>.</span> </div></h1>
       <div class="container-cards">
         <% @upcoming_events.each do |event| %>
         <div class="card-type">
@@ -39,9 +39,8 @@
   </div>
 
   <div class="row">
-    <h2 class="header-1 bg-warning">Past events created by User:<%= @user.name.capitalize %></h1>
-      <div class="badge badge-pill badge-dark"><span class="badge badge-light">
-          <%= pluralize(@prev_events.count, "previous event") %>.</span> </div>
+    <h2 class="header-1 bg-warning">Past events created by User:<%= @user.name.capitalize %> <div class="badge badge-pill badge-dark"><span class="badge badge-light">
+      <%= pluralize(@prev_events.count, "previous event") %>.</span> </div></h1>
       <div class="container-cards">
         <% @prev_events.each do |event| %>
         <div class="card-type">
@@ -55,6 +54,4 @@
       </div>
       <hr>
   </div>
-  <%= link_to 'Edit user', edit_user_path(@user) %> |
-  <%= link_to 'Back to users list', users_path %>
 </section>
