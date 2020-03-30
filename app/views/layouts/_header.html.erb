@@ -2,7 +2,7 @@
 <header class="navbar-custom">
     <ul class="navbar-child">
       <% if signed? %>
-      <li class="user-btn "><%= link_to "#{current_user.name.split(" ")[0]} Events" , user_path(current_user) %></li>
+      <li class="user-btn "><%= link_to "#{ user_name } Events" , user_path(current_user) %></li>
       <li class="event-head"><%= link_to "New Event", new_event_path %></li>
       <li><%= link_to "Logout", logout_path %></li>
       <% else %>

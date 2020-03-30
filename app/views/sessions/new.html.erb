@@ -15,12 +15,12 @@
 
     <div class="field" id="signin-email">
       <%= f.label :email %>
-      <%= f.text_field :email, class: 'form-control' %>
+      <%= f.text_field :email, class: 'form-control', required: true %>
     </div>
 
     <div class="field" id="signin-password">
       <%= f.label :password %>
-      <%= f.text_field :password, class: 'form-control' %>
+      <%= f.text_field :password, class: 'form-control', required: true %>
     </div>
 
     <%= f.submit "Log in", class: "btn btn-primary" %>

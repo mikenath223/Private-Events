@@ -18,45 +18,16 @@ body {
   min-height: 99.9vh;
   &::before {
     content: "";
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background: url(/assets/moodboard.jpg);
+    background-position: 50% 80%;
     position: fixed;
     box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.3);
     left: -30px;
     top: -30px;
     z-index: 11;
-  }
-}
-
-.navbar-child {
-  .user-btn {
-    margin: 4px;
-    padding: 3px;
-    border-radius: 5px;
-    border: 2px solid #eb388a;
-    a {
-      border-radius: 5px;
-    }
-
-    @include box_sizing;
-    &:hover {
-      border-color: #eb3889a1;
-    }
-  }
-  li {
-    a {
-      font-size: 18px;
-      font-weight: 500;
-      color: #fff;
-      padding: 0;
-      margin: 0;
-      transition: color 1s linear;
-    }
-    &:hover {
-      animation: bounce 0.2s 2 forwards;
-    }
   }
 }
 
@@ -105,12 +76,35 @@ body {
     width: 70%;
     margin: 0 30px 0 0;
     justify-content: flex-end;
+    .user-btn {
+      margin: 4px;
+      padding: 3px;
+      border-radius: 5px;
+      border: 1px solid #eb388a;
+      a {
+        border-radius: 5px;
+      }
+      @include box_sizing;
+      &:hover {
+        border-color: #eb3889a1;
+      }
+    }
     li {
       font-size: 20px;
       list-style: none;
-      a:focus,
-      a:hover {
-        text-decoration: none;
+      &:hover {
+        animation: bounce 0.2s 2 forwards;
+      }
+      a {
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+        padding: 0;
+        margin: 0;
+        &:focus,
+        &:hover {
+          text-decoration: none;
+        }
       }
       &:first-child {
         margin-right: 40px;
@@ -126,7 +120,7 @@ body {
   font-family: "Pacifico", cursive;
   margin: 0 auto 0 20px;
   font-size: 1.7em;
-  color: #fff;
+  color: rgb(255, 0, 0);
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: bold;
@@ -153,22 +147,21 @@ body {
 }
 
 .sign-in {
-  height: 480px;
+  height: 440px;
 }
 
 footer {
   position: absolute;
   bottom: 0;
-  z-index: -10;
   width: 100vw;
   min-height: 50px;
   padding: 3px 0;
   display: flex;
   align-items: center;
-  background: linear-gradient(to right, #2b1648, #3c0d56);
-  background: -webkit-linear-gradient(to right, #2b1648, #3c0d56);
-  background: -moz-linear-gradient(to right, #2b1648, #3c0d56);
-  background: -o-linear-gradient(to right, #2b1648, #3c0d56);
+  background: linear-gradient(to right, #2a1e70, #3c0d56);
+  background: -webkit-linear-gradient(to right, #2a1e70, #3c0d56);
+  background: -moz-linear-gradient(to right, #2a1e70, #3c0d56);
+  background: -o-linear-gradient(to right, #2a1e70, #3c0d56);
   nav {
     width: 100%;
     ul {
@@ -180,6 +173,7 @@ footer {
       li {
         list-style: none;
         color: #fff;
+        cursor: pointer;
         &:first-child {
           color: #fff;
           font-size: 17px;
@@ -188,7 +182,6 @@ footer {
           background-color: #fff;
           border: 2px solid #eb388a;
           border-radius: 50%;
-          cursor: pointer;
           width: auto;
           max-height: 30px;
         }
@@ -366,7 +359,7 @@ header {
 }
 
 .signin-but {
-  bottom: 70px;
+  bottom: 130px;
 }
 
 .form-wrap {
@@ -428,13 +421,52 @@ header {
   }
 }
 
+.present-events,
+.past-events,
+.future-events {
+  height: 640px;
+  overflow-y: scroll;
+}
+
 .container-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   .card-type {
-    border: 7px solid red;
     margin: 10px;
     padding: 5px;
+    display: flex;
+    width: 100%;
+    height: 200px;
+    & > .bordered {
+      height: 100%;
+      width: 40%;
+      text-align: center;
+      span {
+        &:first-child {
+          font-size: 65px;
+        }
+        &:nth-child(2) {
+          font-size: 25px;
+        }
+      }
+    }
+    div {
+      height: 100%;
+      .bordered {
+        margin: 0;
+        height: 50%;
+        width: 100%;
+        font-size: 20px;
+        &:first-child {
+          padding-top: 20px;
+        }
+        img {
+          width: auto;
+          max-height: 30px;
+        }
+      }
+      width: 60%;
+    }
   }
   .card-type .bordered {
     font-size: 15px;
@@ -476,14 +508,23 @@ header {
 }
 
 @media only screen and (max-width: 800px) {
+  body {
+    min-height: 80vh;
+    width: 101vw;
+    padding-bottom: 30px;
+  }
   #logo {
     display: block;
+    font-size: 14px;
   }
   .container-home {
     margin-top: 28px;
+    .after {
+      top: -25px;
+    }
     h2 {
-      width: 100%;
-      margin-left: 20%;
+      width: 80%;
+      margin-left: 10%;
     }
   }
   .reg {
@@ -501,22 +542,44 @@ header {
       }
     }
   }
-  .navbar {
-    display: flex;
-    flex-direction: column;
+  .navbar-custom {
+    width: 101vw;
+    justify-content: flex-end;
+    .navbar-child {
+      li {
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  footer {
+    width: 101vw;
   }
 }
 
 @media only screen and (max-width: 430px) {
+  #logo {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+  }
   .navbar-custom {
     height: calc(max-content + 30px);
+    justify-content: flex-end;
     .navbar-child {
-      justify-content: initial;
-      width: 60%;
+      width: 68%;
       padding: 0;
+      justify-content: space-around;
       li {
         width: max-content;
-        font-size: 18px;
+        a {
+          font-size: 14px;
+        }
+        .user-btn {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
         &:first-child {
           margin-left: 20px;
           margin-right: 20px;
@@ -549,19 +612,41 @@ header {
     }
   }
   footer {
+    z-index: 10;
+    bottom: -3px;
     nav {
       ul {
-        flex-direction: column;
+        padding-left: 10px;
+        font-size: 12px;
+        li {
+          &:first-child {
+            font-size: 12px;
+          }
+        }
+        img {
+          max-height: 20px;
+        }
       }
     }
   }
 }
 
 @media (max-width: 330px) {
+  body {
+    min-height: 96vh;
+  }
+  #logo {
+    margin-top: 5px;
+    font-size: 12px;
+  }
   .navbar-custom {
-    #logo {
-      padding: 0;
-      font-size: 18px;
+    .navbar-child {
+      margin-right: 0;
+      li {
+        a {
+          font-size: 12px;
+        }
+      }
     }
   }
   .form-wrap {
