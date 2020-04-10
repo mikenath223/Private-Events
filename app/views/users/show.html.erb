@@ -20,7 +20,7 @@
   <div class="container-cards">
     <% @events.each do |event| %>
     <div class="card-type">
-      <p class="bordered"> <span class="date">
+      <p class="bordered day"> <span class="date">
           <%= event.date.strftime('%d') %></span> <br> <span><%= event.date.strftime('%^b') %></span> </p>
       <div>
         <p class="bordered"><img src="/assets/icons8-task" alt="task"> <%= event.description %></p>
@@ -36,7 +36,7 @@
     <div class="container-cards">
       <% @upcoming_events.each do |event| %>
       <div class="card-type future-each">
-        <p class="bordered"> <span class="date">
+        <p class="bordered day"> <span class="date">
             <%= event.date.strftime('%d') %></span> <br> <span><%= event.date.strftime('%^b') %></span> </p>
         <div>
           <p class="bordered">Event Description: <%= event.description %></p>
@@ -52,7 +52,7 @@
     <div class="container-cards">
       <% @prev_events.each do |event| %>
       <div class="card-type past-each">
-        <p class="bordered"> <span class="date">
+        <p class="bordered day"> <span class="date">
             <%= event.date.strftime('%d') %></span> <br> <span><%= event.date.strftime('%^b') %></span> </p>
         <div class="details">
           <p class="bordered">Event Description: <%= event.description %></p>

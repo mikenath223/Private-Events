@@ -13,9 +13,8 @@ body {
   position: relative;
   @include box_sizing;
   padding-top: 10px;
-  padding-bottom: 80px;
   overflow-x: hidden;
-  min-height: 99.9vh;
+  min-height: 99vh;
   &::before {
     content: "";
     width: 120px;
@@ -152,7 +151,7 @@ body {
 
 footer {
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   width: 100vw;
   min-height: 50px;
   padding: 3px 0;
@@ -425,22 +424,46 @@ header {
 .past-events,
 .future-events {
   height: 640px;
+  max-width: 800px;
+  min-width: 300px;
   overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
 }
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  background: #031829;
+}
+
+
 
 .container-cards {
   display: flex;
   flex-direction: column;
   .card-type {
-    margin: 10px;
+    margin-bottom: 15px;
     padding: 5px;
     display: flex;
     width: 100%;
     height: 200px;
-    & > .bordered {
+    .day {
+      background-color: rgb(8, 2, 37);
+      border-right: 1px solid rgb(11, 3, 53);
       height: 100%;
-      width: 40%;
       text-align: center;
+      width: 40%;
       span {
         &:first-child {
           font-size: 65px;
@@ -452,6 +475,8 @@ header {
     }
     div {
       height: 100%;
+      background-color: #000;
+      padding-left: 10px;
       .bordered {
         margin: 0;
         height: 50%;
@@ -470,7 +495,6 @@ header {
   }
   .card-type .bordered {
     font-size: 15px;
-    background-color: #000;
     color: #fff;
     padding: 5px;
   }

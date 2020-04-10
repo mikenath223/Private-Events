@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @users = User.all.sample(10).where('user.email != ?', current_user.email)
+    @users = User.all.where('email != ?', current_user.email).sample(10)
   end
 
   def create

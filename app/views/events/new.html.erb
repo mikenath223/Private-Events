@@ -1,13 +1,13 @@
 <%= provide(:title, "Create an event") %>
 <div class="row form-container new-event reg">
-    <div class="side-intro new-event-intro">
-      <h1>Eventrix</h1>
-      <div class="signup-welcome">
-        <h2>Made for those who do</h2>
-        <p>Create experiences, create passion...</p>
-        <small>#YOLO</small>
-      </div>
+  <div class="side-intro new-event-intro">
+    <h1>Eventrix</h1>
+    <div class="signup-welcome">
+      <h2>Made for those who do</h2>
+      <p>Create experiences, create passion...</p>
+      <small>#YOLO</small>
     </div>
+  </div>
   <div class="col-md-6 col-md-offset-3 form-wrap">
     <h1>Create a New Event</h1>
     <%= form_for(@event) do |f|  %>
@@ -22,9 +22,8 @@
     <%= f.text_area :description, class: 'form-control' %>
 
     <%= f.label :attendees, "Invite Guests (Hold ctrl and click to select multiple)" %>
-    <%= f.select(:attendees, User.all.sample(10).collect {|p| [ p.name, p.id ] }, 
-    {},
-    { :multiple => true, :size => 4 }) %>
+    <%= f.select(:attendees, @users.pluck(:name, :id),{},{ :multiple => true, :size => 4 }) %>
+
 
     <%= f.submit "Create Event", class: "btn btn-primary" %>
     <% end %>
