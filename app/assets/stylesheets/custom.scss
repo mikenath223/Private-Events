@@ -20,7 +20,7 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background: url(../images/moodboard.jpg);
+    background: url(https://res.cloudinary.com/mikenath/image/upload/v1586515475/moodboard_fd7ylu.jpg);
     background-position: 50% 80%;
     position: fixed;
     box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.3);
@@ -119,7 +119,7 @@ body {
   font-family: "Pacifico", cursive;
   margin: 0 auto 0 20px;
   font-size: 1.7em;
-  color: rgb(255, 0, 0);
+  color: #000;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: bold;
@@ -243,7 +243,7 @@ header {
   position: relative;
   margin: 0;
   height: 90vh;
-  background: center / cover url(../images/man-in-cafe-on-laptop-720x380.jpg) no-repeat;
+  background: center / cover url(https://res.cloudinary.com/mikenath/image/upload/v1586515471/man-in-cafe-on-laptop-720x380_wujnbg.jpg) no-repeat;
   .after {
     position: absolute;
     top: 0;
@@ -295,7 +295,7 @@ header {
     position: relative;
     width: 40%;
     z-index: -1;
-    background: center / cover url(../images/party.jpg) no-repeat;
+    background: center / cover url(https://res.cloudinary.com/mikenath/image/upload/v1586515475/party_xznvfq.jpg) no-repeat;
     * {
       color: #fff;
     }
@@ -328,7 +328,7 @@ header {
     }
   }
   .new-event-intro {
-    background-image: url(../images/guitarplay.jpeg);
+    background-image: url(https://res.cloudinary.com/mikenath/image/upload/v1586515474/guitarplay_n91f8y.jpg);
   }
 }
 
