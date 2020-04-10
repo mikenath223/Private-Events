@@ -22,8 +22,9 @@
     <%= f.text_area :description, class: 'form-control' %>
 
     <%= f.label :attendees, "Invite Guests (Hold ctrl and click to select multiple)" %>
-    <%= f.select(:attendees, @users.pluck(:name, :id),{},{ :multiple => true, :size => 4 }) %>
-
+    <%= f.select(:attendees, User.all.sample(10).collect {|p| [ p.name, p.id ] }, 
+    {},
+    { :multiple => true, :size => 4 }) %>
 
     <%= f.submit "Create Event", class: "btn btn-primary" %>
     <% end %>
