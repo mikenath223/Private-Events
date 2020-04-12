@@ -1,5 +1,13 @@
 <%= provide(:title, "Create an event") %>
-<div class="row form-container">
+<div class="row form-container new-event reg">
+  <div class="side-intro new-event-intro">
+    <h1>Eventrix</h1>
+    <div class="signup-welcome">
+      <h2>Made for those who do</h2>
+      <p>Create experiences, create passion...</p>
+      <small>#YOLO</small>
+    </div>
+  </div>
   <div class="col-md-6 col-md-offset-3 form-wrap">
     <h1>Create a New Event</h1>
     <%= form_for(@event) do |f|  %>

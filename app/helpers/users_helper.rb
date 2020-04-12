@@ -34,4 +34,9 @@ module UsersHelper
   def events
     @events ||= User.find_by(id: cookies.signed[:user_id]).events
   end
+
+  def user_name
+    first_name = current_user.name.split(' ')[0]
+    first_name.length > 10 ? first_name[0..8] + '...' : first_name
+  end
 end

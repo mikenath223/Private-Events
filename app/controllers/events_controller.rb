@@ -4,14 +4,14 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update attend_event]
   before_action :auth?
   def index
-    @upcoming_events = Event.upcoming_events
-    @prev_events = Event.prev_events
-    @present_events = Event.present_events
+    @upcoming_events = Event.upcoming_events.order(date: :desc)
+    @prev_events = Event.prev_events.order(date: :desc)
+    @present_events = Event.present_events.order(date: :desc)
   end
 
   def new
     @event = Event.new
-    @users = User.all.sample(10)
+    @users = User.all.where('email != ?', current_user.email).sample(10)
   end
 
   def create
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
       flash[:success] = 'Event created!'
     else
       flash.now[:alert] = 'Error creating event'
-      render 'new'
+      render :new
     end
   end
 

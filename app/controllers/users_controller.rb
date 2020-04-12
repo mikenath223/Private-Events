@@ -24,9 +24,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @events = @user.events
-    @upcoming_events = @user.attended_events.upcoming_events
-    @prev_events = @user.attended_events.prev_events
+    @events = @user.events.order(date: :desc)
+    @upcoming_events = @user.attended_events.upcoming_events.order(date: :desc)
+    @prev_events = @user.attended_events.prev_events.order(date: :desc)
   end
 
   def edit; end

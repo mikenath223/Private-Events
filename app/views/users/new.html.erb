@@ -1,5 +1,13 @@
 <%= provide(:title, "Sign up") %>
-<div class="row form-container">
+<section class="row form-container sign-up reg">
+  <div class="side-intro">
+    <h1>Eventrix</h1>
+    <div class="signup-welcome">
+      <h2>Welcome Back</h2>
+      <p>To keep connected with us please signup with your personal info.</p>
+    </div>
+  </div>
+  <button class="aside-reg"><%= link_to "Sign in", signin_path %></button>
   <div class="col-md-6 col-md-offset-3 form-wrap">
     <h1>Sign Up</h1>
     <%= form_for @user do |f|  %>
@@ -20,4 +28,4 @@
     <% end %>
 
   </div>
-</div>
+</section>

@@ -17,7 +17,7 @@
   </h3>
 
   <h3 align="center">
-	 Live Version - https://thawing-lowlands-25133.herokuapp.com/
+	 Live Version - https://eventrix.herokuapp.com/
   </h3>
 
   <p align="center">
