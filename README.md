@@ -86,7 +86,7 @@ Users can create events and send invitations and parties. Events take place at a
   <br />
   
   
-* [Mario E. Delgado](https://github.com/MarioDena)
+**Mario E. Delgado**
 
 # License
 
