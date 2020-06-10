@@ -78,7 +78,14 @@ Users can create events and send invitations and parties. Events take place at a
 
 # Authors
 
-* [Ukeje Michgolden](https://github.com/mikenath223)
+**Michgolden Ukeje**
+
+- Github: [@mikenath223](https://github.com/mikenath223)
+- Twitter: [@Michgolden_Nath](https://twitter.com/MichgoldenU)
+- Linkedin: [Ukeje Michgolden](https://https://www.linkedin.com/in/michgoldenukeje/)
+  <br />
+  
+  
 * [Mario E. Delgado](https://github.com/MarioDena)
 
 # License
